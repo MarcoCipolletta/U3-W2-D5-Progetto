@@ -20,7 +20,7 @@
       <label class="form-check-label" [for]="inputID">Completato</label>
     </div>
     <div class="nameAndTime">
-      <p>9:00 AM</p>
+      <p>{{ randomTime }}</p>
       <div *ngIf="todo.user">
         <span class="m-0">{{ todo.user.username }}</span>
         <img
