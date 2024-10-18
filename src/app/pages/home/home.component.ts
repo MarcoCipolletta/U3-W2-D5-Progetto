@@ -16,7 +16,7 @@ export class HomeComponent {
     this.todosSvc.getTodosWithUsername(this.usersSvc.users);
     this.todos = this.todosSvc.todos;
   }
-  get filteredTodos(): iTodo[] {
+  get searchedTodos(): iTodo[] {
     if (!this.inputValue) {
       return this.todos;
     }

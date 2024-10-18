@@ -13,20 +13,4 @@ export class CardUserComponent {
   @Input() user!: iUser;
 
   constructor(private todosSvc: TodosService, private usersSvc: UsersService) {}
-
-  syncTodoCompletion(todoId: number, completed: boolean) {
-    const todo = this.todosSvc.todos.find((t) => t.id === todoId);
-    if (todo) {
-      todo.completed = completed;
-    }
-
-    this.usersSvc.users.forEach((user) => {
-      if (user.todos) {
-        const userTodo = user.todos.find((t) => t.id === todoId);
-        if (userTodo) {
-          userTodo.completed = completed;
-        }
-      }
-    });
-  }
 }
