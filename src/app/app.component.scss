@@ -1,5 +1,10 @@
 .scroll-component {
-  height: 100vh;
-  overflow-y: auto;
-  flex-grow: 1;
+  @media screen and (min-width: 576px) {
+    height: 100vh;
+    overflow-y: auto;
+    flex-grow: 1;
+  }
+  @media screen and (max-width: 575px) {
+    padding-top: 115px;
+  }
 }

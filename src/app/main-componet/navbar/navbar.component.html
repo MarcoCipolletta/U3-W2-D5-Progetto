@@ -1,14 +1,18 @@
-<header class="p-3 bg-body-secondary">
-  <div class="mb-5">
-    <h2 class="logo"><span>Task</span>Mate</h2>
-    <p>Focus. Prioritize. Execute.</p>
+<header
+  class="p-3 pb-0 bg-body-secondary d-flex flex-column justify-content-sm-start"
+>
+  <div class="mb-sm-5">
+    <h2 class=""><span>Task</span>Mate</h2>
   </div>
-  <ul class="menuList">
-    <li><i class="fa-solid fa-house"></i><a routerLink="/">Home</a></li>
-    <li>
-      <i class="fa-solid fa-circle-check"></i
-      ><a routerLink="/completed">Completati</a>
+  <ul class="ps-0 menuList d-flex gap-3 flex-sm-column">
+    <li role="button" routerLink="/">
+      <i class="fa-solid fa-house"></i><a>Home</a>
     </li>
-    <li><i class="fa-solid fa-users"></i><a routerLink="/users">Users</a></li>
+    <li role="button" routerLink="/completed">
+      <i class="fa-solid fa-circle-check"></i><a>Completati</a>
+    </li>
+    <li role="button" routerLink="/users">
+      <i class="fa-solid fa-users"></i><a>Users</a>
+    </li>
   </ul>
 </header>
