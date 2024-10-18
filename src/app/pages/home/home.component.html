@@ -1,1 +1,21 @@
-<p>home works!</p>
+<div class="container my-3">
+  <h1>Tutti i task della giornata</h1>
+  <div class="mb-3">
+    <label for="searchInput" class="form-label">Filtra per utente</label>
+    <input
+      type="text"
+      class="form-control"
+      id="searchInput"
+      placeholder="Scrivi il nome dell'utente"
+      [(ngModel)]="inputValue"
+    />
+  </div>
+  <div
+    *ngIf="todos.length > 0"
+    class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3"
+  >
+    <div class="col" *ngFor="let todo of filteredTodos; let i = index">
+      <app-card-todo [todo]="todo" [inputID]="'completed' + i"></app-card-todo>
+    </div>
+  </div>
+</div>

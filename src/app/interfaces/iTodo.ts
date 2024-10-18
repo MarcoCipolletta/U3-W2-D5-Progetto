@@ -3,4 +3,8 @@ export interface iTodo {
   todo: string;
   completed: boolean;
   userId: number;
+  user?: {
+    img: string;
+    username: string;
+  };
 }

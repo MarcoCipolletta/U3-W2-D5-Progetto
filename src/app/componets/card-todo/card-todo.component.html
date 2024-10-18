@@ -1,1 +1,37 @@
-<p>card-todo works!</p>
+<div
+  class="card h-100"
+  [ngClass]="{
+    completed: todo.completed,
+    incomplete: !todo.completed
+  }"
+>
+  <div class="card-body">
+    <h4 class="card-title pt-3">{{ todo.todo }}</h4>
+  </div>
+  <div class="card-footer">
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        name="completed"
+        [id]="inputID"
+        [(ngModel)]="todo.completed"
+      />
+      <label class="form-check-label" [for]="inputID">Completato</label>
+    </div>
+    <div class="nameAndTime">
+      <p>9:00 AM</p>
+      <div *ngIf="todo.user">
+        <span class="m-0">{{ todo.user.username }}</span>
+        <img
+          [src]="todo.user.img"
+          [ngClass]="{
+            completed: todo.completed,
+            incomplete: !todo.completed
+          }"
+          alt="img user"
+        />
+      </div>
+    </div>
+  </div>
+</div>

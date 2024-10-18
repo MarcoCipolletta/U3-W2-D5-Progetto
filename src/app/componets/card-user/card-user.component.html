@@ -1,1 +1,59 @@
-<p>card-user works!</p>
+<div class="card bg-body-secondary">
+  <div class="card-body">
+    <button
+      class="buttonCollapse"
+      (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed"
+      aria-controls="collapseExample"
+    >
+      {{ user.firstName }} {{ user.lastName }}
+    </button>
+
+    <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+      <!-- aggiungo la card -->
+      <div class="card mt-3">
+        <div class="d-flex p-2 gap-3">
+          <div class="imageWrap">
+            <img [src]="user.image" class="card-img-top" alt="image user" />
+          </div>
+
+          <div class="d-flex flex-column justify-content-center">
+            <p class="card-text fw-bold mb-0">
+              {{ user.title }}
+            </p>
+            <span class="userEmail">
+              {{ user.email }}
+            </span>
+          </div>
+        </div>
+
+        <ul
+          class="list-group list-group-flush"
+          *ngIf="user.todos && user.todos.length > 0"
+        >
+          <li
+            *ngFor="let todo of user.todos; let i = index"
+            class="list-group-item"
+            [ngClass]="{
+              completed: todo.completed,
+              incomplete: !todo.completed
+            }"
+          >
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                name="completed"
+                [id]="user.firstName + i"
+                [(ngModel)]="todo.completed"
+              />
+              <label class="form-check-label" [for]="user.firstName + i">{{
+                todo.todo
+              }}</label>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

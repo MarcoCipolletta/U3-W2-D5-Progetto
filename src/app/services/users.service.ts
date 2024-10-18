@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { iUser } from '../interfaces/iUser';
+import { iTodo } from '../interfaces/iTodo';
 
 @Injectable({
   providedIn: 'root',
@@ -807,6 +808,28 @@ export class UsersService {
       title: 'VP Sales',
     },
   ];
+  addEmptyArrToUsersTodo() {
+    //mi serve per evitare che ogni volta che torno nella pagina degli users
+    //si dublicano i todo presenti nell'array user.todos
+    this.users.forEach((user) => {
+      user.todos = [];
+    });
+  }
+
+  getUserWithTodos(todos: iTodo[]): void {
+    todos.forEach((todo) => {
+      this.users.forEach((user) => {
+        if (todo.userId === user.id) {
+          if (user.todos) {
+            user.todos.push(todo);
+          } else {
+            user.todos = [todo];
+          }
+        }
+      });
+    });
+    console.log(this.users);
+  }
 
   constructor() {}
 }

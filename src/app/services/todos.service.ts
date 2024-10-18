@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { iTodo } from '../interfaces/iTodo';
+import { iUser } from '../interfaces/iUser';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -909,4 +911,22 @@ export class TodosService {
   ];
 
   constructor() {}
+
+  getTodosWithUsername(users: iUser[]) {
+    this.todos = this.todos.map((todo) => {
+      const foundUser = users.find((user) => user.id === todo.userId);
+
+      if (!foundUser) return todo;
+      let userTodo = {
+        img: foundUser.image,
+        username: `${foundUser.firstName} ${foundUser.lastName}`,
+      };
+
+      return {
+        ...todo,
+        user: userTodo,
+      };
+    });
+    console.log(this.todos);
+  }
 }

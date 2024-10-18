@@ -1,1 +1,11 @@
-<p>completed works!</p>
+<div class="container my-3">
+  <h1>Task completati</h1>
+  <div
+    *ngIf="completed.length > 0"
+    class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3"
+  >
+    <div class="col" *ngFor="let todo of completed; let i = index">
+      <app-card-todo [todo]="todo" [inputID]="'completed' + i"></app-card-todo>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,10 @@
-<p>users works!</p>
+<div class="container">
+  <h1 class="py-3">Tutti gli utenti</h1>
+  <div *ngIf="users.length > 0">
+    <div class="row my-3" *ngFor="let user of users">
+      <div class="col">
+        <app-card-user [user]="user"></app-card-user>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+$borderCompleted: 1px solid rgb(6 86 38);
+$borderIncomplete: 1px solid rgb(90, 0, 0);
+
+.card {
+  &.completed {
+    background-color: rgb(179, 243, 179);
+    border: $borderCompleted;
+  }
+  &.incomplete {
+    background-color: rgb(243, 179, 179);
+    border: $borderIncomplete;
+  }
+  .card-footer {
+    background-color: transparent;
+    border: none;
+    label {
+      color: rgb(80, 80, 80);
+    }
+    .nameAndTime {
+      margin-top: 0.5rem;
+      color: rgb(80, 80, 80);
+      & > p {
+        margin: 0;
+      }
+      display: flex;
+      justify-content: space-between;
+
+      div {
+        height: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: 0.5rem;
+
+        img {
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+
+          background-color: white;
+          &.completed {
+            border: $borderCompleted;
+          }
+          &.incomplete {
+            border: $borderIncomplete;
+          }
+        }
+      }
+    }
+  }
+}
